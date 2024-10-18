@@ -14,7 +14,7 @@ Route::get("/login", function () {
 Route::get("/home", function () {
     $contacts = [];
     $faker = Faker::create();
-    for ($i = 1; $i <= 10; $i++) {
+    for ($i = 1; $i <= 11; $i++) {
         $contacts[] = [
             'name' => $faker->name,
             'email' => $faker->unique()->safeEmail,
