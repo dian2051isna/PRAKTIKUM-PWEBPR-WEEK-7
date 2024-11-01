@@ -6,6 +6,7 @@
     <h1>Ini Homepage</h1>
     <p>Selamat datang di Contact App</p>
 
+    <a class="px-3 py-2 rounded-lg bg-green-500 my-5" href="{{route('create-user')}}">Create User</a>
     <div>
         <table border="1" class="border">
             <thead class="border">

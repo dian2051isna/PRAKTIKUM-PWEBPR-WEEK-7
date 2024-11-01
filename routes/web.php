@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Faker\Factory as Faker;
 
@@ -11,15 +13,11 @@ Route::get("/login", function () {
     return view("login",);
 });
 
-Route::get("/home", function () {
-    $contacts = [];
-    $faker = Faker::create();
-    for ($i = 1; $i <= 11; $i++) {
-        $contacts[] = [
-            'name' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
-            'phone' => $faker->phoneNumber
-        ];
-    };
-    return view("homepage", ['contacts' => $contacts]);
+Route::get("/contact", function () 
+{
+    $users = User::all();
+    return view("homepage", ['contacts' => $users]);
 });
+
+Route::get("/home", [UserController::class, "index"]);
+Route::get("/create-user", [UserController::class, "create"])->name("create-user");

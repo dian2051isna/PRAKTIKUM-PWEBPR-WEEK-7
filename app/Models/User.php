@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable; 
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +21,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    // maksudnya, data-data yang mau diisi bakalan terisi ke fillable diatas ini
+    // ada yang guarded pulak coy, selain fillable, dan hidden
 
+    
     /**
      * The attributes that should be hidden for serialization.
      *
