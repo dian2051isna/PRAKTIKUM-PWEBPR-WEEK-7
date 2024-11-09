@@ -15,6 +15,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Action</th>                   
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,9 @@
                         <td>{{ $contact["name"] }}</td>
                         <td>{{ $contact["email"] }}</td>
                         <td>{{ $contact["phone"] }}</td>
+                        <td>
+                            <a href="{{route('edit-user/{user}')}}" class="px-3 py-2 rounded-lg text-white bg-yellow-500 hover:bg-yellow-700" type="submit">Edit</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

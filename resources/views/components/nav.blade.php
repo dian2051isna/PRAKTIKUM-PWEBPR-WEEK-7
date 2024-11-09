@@ -9,6 +9,11 @@
     <ul class="flex space-x-4 text-white">
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Register</a></li>
+        
+        @auth()
+            <a href="{{ route ('logout')}}"></a>
+            @else
+        @endauth
         <li><a href="/contact">Contact</a></li>
     </ul>
 </nav>
