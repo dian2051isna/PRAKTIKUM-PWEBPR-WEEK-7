@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; 
-use Illuminate\Support\Facades\Auth as Authorize; 
-use App\Models\User;
+use Illuminate\Support\Facades\Auth as Authorize;
 
 class AuthController extends Controller
 {
@@ -31,27 +30,25 @@ class AuthController extends Controller
         return redirect()->route("login");
     }
 
-
     public function authenticate(Request $request)
-        {
-            $credentials = $request->validate([
-                'email' => ['required', 'email'],
-                'password' => ['required'],
-            ]);
-     
-            if (Auth::attempt($credentials)) {
-                $request->session()->regenerate();
-     
-                return redirect()->intended('dashboard');
-            }
-     
-            return back();
+    {
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (Authorize::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/');
         }
 
-     public function logout()
-     {
+        return back();
+    }
+
+    public function logout(){
         Authorize::logout();
-    
+
         return redirect()->route("login");
     }
-    }
+}

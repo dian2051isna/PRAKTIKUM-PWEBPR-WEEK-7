@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'name' => fake('id_ID')->name(),
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->unique()->phoneNumber(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make('password'), //null coalescing operatior
         ];
     }
 

@@ -19,12 +19,17 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'phone'
+        'phone',
     ];
     // maksudnya, data-data yang mau diisi bakalan terisi ke fillable diatas ini
     // ada yang guarded pulak coy, selain fillable, dan hidden
 
-    
+    // protected $guarded = [
+    //     "id",
+    //     "created_at",
+    //     "updated_at",
+    // ];
+
     /**
      * The attributes that should be hidden for serialization.
      *

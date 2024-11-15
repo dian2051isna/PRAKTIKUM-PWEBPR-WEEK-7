@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index() 
+    public function index()
     {
         $users = User::all();
-        return view("homepage", ['contacts' => $users]);    
+        return view("homepage", ['contacts' => $users]);
     }
 
     public function create()
@@ -29,13 +29,11 @@ class UserController extends Controller
         return redirect()->route("homepage");
     }
 
-    public function edit(User $user) 
-    {
+    public function edit(User $user) {
         return view("edit", compact("user"));
     }
 
-    public function update(Request $request, User $user) 
-    {
+    public function update(Request $request, User $user) {
         $user->update([
             "name" => $request->name,
             "email" => $request->email,
